@@ -1,0 +1,2 @@
+opt -f -enable-new-pm=0 -load tools/Rain/libpath_logging.so -pathLogPass ~/cps_platform/turtlebot/catkin_ws/build/amcl/onewhole_insted.bc  -o binary_log 
+# opt -f -enable-new-pm=0 -load tools/Rain/libpath_logging.so -pathLogPass ../toy_examples/swap.ll -o tmp_binary

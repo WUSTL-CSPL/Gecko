@@ -1,0 +1,2 @@
+add_subdirectory(cpt_analysis)
+add_subdirectory(cmpt_enforce)

@@ -1,0 +1,1 @@
+/usr/lib/ccache/c++ -fPIC   -shared  -o libdo_comp.so CMakeFiles/do_comp.dir/HexboxApplication.o  -ljsoncpp -ljsoncpp 

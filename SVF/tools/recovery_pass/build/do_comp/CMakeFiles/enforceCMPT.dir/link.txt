@@ -1,0 +1,1 @@
+/usr/lib/ccache/c++ -fPIC   -shared -Wl,-soname,libenforceCMPT.so -o libenforceCMPT.so CMakeFiles/enforceCMPT.dir/HexboxApplication.o  -ljsoncpp -lSvf -ljsoncpp -lSvf 

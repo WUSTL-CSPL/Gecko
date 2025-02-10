@@ -1,0 +1,1 @@
+/usr/lib/ccache/c++ -fPIC   -shared -Wl,-soname,libHexboxAnalysis.so -o libHexboxAnalysis.so CMakeFiles/HexboxAnalysis.dir/HexboxAnalysis.o  -ljsoncpp -lSvf -ljsoncpp -lSvf 

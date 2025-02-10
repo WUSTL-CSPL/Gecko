@@ -1,0 +1,3 @@
+/home/ao/Projects/recovery/lib_llvmpass/compartment/do_comp/build/CMakeFiles/rebuild_cache.dir
+/home/ao/Projects/recovery/lib_llvmpass/compartment/do_comp/build/CMakeFiles/edit_cache.dir
+/home/ao/Projects/recovery/lib_llvmpass/compartment/do_comp/build/CMakeFiles/do_comp.dir

@@ -1,0 +1,1 @@
+sort -k10 "/tmp/output.txt" -n > /tmp/timeresult.txt

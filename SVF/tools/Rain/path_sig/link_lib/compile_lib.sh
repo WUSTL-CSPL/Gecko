@@ -1,0 +1,1 @@
+clang++ -emit-llvm -c -S  pathsiglib.cpp -o pathsiglib.ll

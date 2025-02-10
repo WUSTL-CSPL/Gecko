@@ -1,0 +1,40 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/ao/Projects/recovery/SVF/tools/recovery_pass/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_7f629/fast && /usr/bin/make -f CMakeFiles/cmTC_7f629.dir/build.make CMakeFiles/cmTC_7f629.dir/build
+make[1]: Entering directory '/home/ao/Projects/recovery/lib_llvmpass/svf_pass/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7f629.dir/src.c.o
+/usr/lib/ccache/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_7f629.dir/src.c.o   -c /home/ao/Projects/recovery/SVF/tools/recovery_pass/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_7f629
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7f629.dir/link.txt --verbose=1
+/usr/lib/ccache/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_7f629.dir/src.c.o  -o cmTC_7f629 
+/usr/local/bin/ld: CMakeFiles/cmTC_7f629.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/local/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/local/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_7f629.dir/build.make:87: cmTC_7f629] Error 1
+make[1]: Leaving directory '/home/ao/Projects/recovery/lib_llvmpass/svf_pass/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_7f629/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+

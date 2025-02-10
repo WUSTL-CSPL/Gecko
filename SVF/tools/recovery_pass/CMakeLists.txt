@@ -1,0 +1,4 @@
+add_subdirectory(cmpt_analysis)
+add_subdirectory(cmpt_enforce)
+add_subdirectory(link_lib)
+add_subdirectory(checkpointing)
