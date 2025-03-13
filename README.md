@@ -11,13 +11,15 @@ This repo contains the source code of Gecko, which is structured as follows:
 
 ## Setup 
 
+**All code is only tested on Ubuntu 20.04. To ensure compatibility and avoid potential issues, we recommend running it on Ubuntu 20.04.**
+
+
 Dependencies Installation:
 ```
 $ sudo apt install cmake build-essential make texinfo bison flex \\ 
 ninja-build git ncurses-dev texlive-full binutils-dev python-networkx \\ 
 python-matplotlib python-pygraphviz python-serial 
 ```
-
 
 LLVM Installation: \sysname is tested on \textsf{LLVM-13}. User can either install the package on ubuntu or compile from source code. Due to space constraints, please refer to the [official instructions](https://releases.llvm.org/13.0.0/docs/CMake.html) for more details.
 
@@ -31,7 +33,76 @@ cmake .. && make
 sudo make install
 ```
 
+### Set up Docker
+
+You can also use our preconfigured Docker setup. In that case, you'll need to install Docker first.
+
+### Manual Installation
+
+Instruction source: [Install Docker Desktop on Linux | Docker Documentation](https://docs.docker.com/desktop/install/linux-install/)
+
+Uninstall old versions
+
+```
+for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
+```
+Set up the repository
+
+1. Update the  `apt`  package index and install packages to allow  `apt`  to use a repository over HTTPS:
+   
+   ```
+   sudo apt-get update
+   sudo apt-get install ca-certificates curl gnupg
+   ```
+
+2. Add Docker’s official GPG key:
+   
+   ```
+   sudo install -m 0755 -d /etc/apt/keyrings
+   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+   sudo chmod a+r /etc/apt/keyrings/docker.gpg
+   ```
+
+3. Use the following command to set up the repository:
+   
+   ```
+   echo \
+     "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+     "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+     sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+   ```
+Install Docker Engine:
+
+1. Update the apt package index:
+   
+   ```
+    sudo apt-get update
+   ```
+2. Install Docker Engine, containerd, and Docker Compose.
+   To install the latest version, run:
+   
+   ```
+    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+   ```
+3. Verify that the Docker Engine installation is successful by running the hello-world image.
+   
+   ```
+    sudo docker run hello-world
+   ```
+
+
 ## Run Gecko
+
+#### Start the docker (Optional)
+
+This step is only necessary if you're using Docker to run Gecko.
+
+```
+xhost +local:docker
+(sudo) docker run -it  --privileged -e DISPLAY --env="QT_X11_NO_MITSHM=1" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" ghcr.io/a01ixxx/gecko-image:stable
+```
+
+Then you will enter into the docker
 
 
 #### Compile Time
@@ -39,6 +110,7 @@ sudo make install
 Given CPS software such as ArduPilot, \sysname uses command line instructions to automatically compartmentalize and instrument the software.
 
 ```bash!
+$ cd ~
 $ cd ./ardupilot_redcaps/
 $ ./compartmentalization.sh
 ```
@@ -58,10 +130,18 @@ The final binary result is the file \textit{./build/sitl/bin/arducopter}. You ca
 
 #### Run time
 
-Launching the ArduPilot simulation requires multiple commands, so we provide two scripts to simplify the process. 
+Launching the ArduPilot simulation requires multiple commands, so we provide three scripts to simplify the process. 
 
-The first script automatically configures the drone, launches the mission, and opens two panels to display simulation information. 
+The first script launches ArduPilot and checkpoints a program in memory, which will be used later.
 
+```bash!
+$ cd ardupilot_recovery
+$ ./prepare_checkpoint.sh
+```
+
+
+
+The second script automatically configures the drone, launches the mission, and opens two panels to display simulation information. 
 
 ```bash!
 $ cd /path/to/Gecko
