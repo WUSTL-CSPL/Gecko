@@ -13,7 +13,7 @@ This repo contains the source code of Gecko, which is structured as follows:
 
 **All code is only tested on Ubuntu 20.04. To ensure compatibility and avoid potential issues, we recommend running it on Ubuntu 20.04.**
 
-
+<!--
 Dependencies Installation:
 ```
 $ sudo apt install cmake build-essential make texinfo bison flex \\ 
@@ -32,7 +32,7 @@ mkdir build && cd build
 cmake .. && make
 sudo make install
 ```
-
+-->
 ### Set up Docker
 
 You can also use our preconfigured Docker setup. In that case, you'll need to install Docker first.
