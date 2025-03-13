@@ -135,7 +135,7 @@ Launching the ArduPilot simulation requires multiple commands, so we provide thr
 The first script launches ArduPilot and checkpoints a program in memory, which will be used later.
 
 ```bash!
-$ cd ardupilot_recovery
+$ cd ~/ardupilot_recovery
 $ ./prepare_checkpoint.sh
 ```
 
@@ -144,17 +144,20 @@ $ ./prepare_checkpoint.sh
 The second script automatically configures the drone, launches the mission, and opens two panels to display simulation information. 
 
 ```bash!
-$ cd /path/to/Gecko
+$ cd ./ardupilot_redcaps/
 $ ./launch_demo.sh
 [Gecko] Using the native block.
 [Gecko] Using the native block.
 ```
 
-Please wait for about 1-3 minutes for the drone to begin executing the mission. Once the mission starts, you can run the second script, which is designed to trigger a program crash and then recover it from a checkpoint.  
+Please wait about 1–3 minutes for the drone to begin its mission. Once it starts, it should look like the figure below.
 
 
 ![gecko_demo](./others/gecko_demo.png)
 
+
+Then, return to your main terminal by **detaching** from the current tmux session: press <kbd>Ctrl</kbd>+<kbd>B</kbd>, then <kbd>D</kbd>.
+Next, you can run the thrid script, which is designed to trigger a program crash and then recover it from a checkpoint.  
 
 
 ```
