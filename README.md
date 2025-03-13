@@ -112,7 +112,7 @@ Given CPS software such as ArduPilot, \sysname uses command line instructions to
 ```bash!
 $ cd ~
 $ cd ./ardupilot_redcaps/
-$ ./compartmentalization.sh
+$ ./1_compartmentalization.sh
 ```
 
 The compartmentalization result is in the file \textit{./build/sitl/compartments\_result.json}. The functions and variables are partitioned into different compartments (code and data regions).
@@ -122,7 +122,7 @@ Next, \sysname uses the following command line to automatically instrument the d
 
 
 ```bash!
-$ ./instrumentation.sh
+$ ./2_instrumentation.sh
 ```
 
 The final binary result is the file \textit{./build/sitl/bin/arducopter}. You can use the following command to check the instrumented attack detection codes.
