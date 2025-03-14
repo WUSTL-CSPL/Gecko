@@ -56,8 +56,7 @@ $ cmake -G "Unix Makefiles" ../llvm \
        -DCMAKE_BUILD_TYPE=Release \
        -DLLVM_ENABLE_PROJECTS="clang;clang++;lld;compiler-rt" \
        -DCMAKE_INSTALL_PREFIX=/usr/local/llvm \
-       -DLLVM_BINUTILS_INCDIR=~/binutils/include/ \
-       -DLLVM_USE_LINKER=gold
+       -DLLVM_BINUTILS_INCDIR=~/binutils/include/
 $ make
 ```
 

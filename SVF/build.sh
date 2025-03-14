@@ -221,8 +221,8 @@ then
     cd ./'Debug-build'
     cmake -D CMAKE_BUILD_TYPE:STRING=Debug ../
 else
-    # rm -rf ./'Release-build'
-    # mkdir ./'Release-build'
+    rm -rf ./'Release-build'
+    mkdir ./'Release-build'
     cd ./'Release-build'
     cmake ../
     fi
