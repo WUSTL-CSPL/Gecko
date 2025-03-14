@@ -8,15 +8,15 @@ Most of the necessary packages can be installed using `apt` and `pip`.
 
 Install apt packages:
 
-```bash!
+```bash
 $ sudo apt update
-$ sudo apt install cmake build-essential make texinfo bison flex ninja-build git ncurses-dev texlive-full binutils-dev python-networkx python-matplotlib python-pygraphviz python-serial 
+$ sudo apt install cmake build-essential make texinfo bison flex ninja-build git gitk git-gui ncurses-dev texlive-full binutils-dev python-networkx python-matplotlib python-pygraphviz python-serial 
 ```
 
 
 Install pip packages:
 
-```bash!
+```bash
 
 
 ```
@@ -32,20 +32,20 @@ Gecko is built on top of LLVM 13. The following instructions are sourced from th
 
 Install some prerequisite packages:
 
-```bash!
-sudo apt install -y build-essential cmake ninja-build git curl python3 zlib1g-dev libedit-dev libncurses5-dev libxml2-dev libssl-dev libtool-bin texinfo libexpat1-dev
+```bash
+$ sudo apt install -y build-essential cmake ninja-build git curl python3 zlib1g-dev libedit-dev libncurses5-dev libxml2-dev libssl-dev libtool-bin texinfo libexpat1-dev
 ```
 
 To enable the LLVM pass, we enable the gold plugin, which requires `binutils` to build
 
-```bash!
+```bash
 $ cd ~
 $ git clone --depth 1 git://sourceware.org/git/binutils-gdb.git binutils
 ```
 
 Pull and compile the llvm-project:
 
-```bash!
+```bash
 $ cd ~
 $ git clone https://github.com/llvm/llvm-project.git
 $ cd llvm-project
@@ -57,15 +57,17 @@ $ cmake -G "Unix Makefiles" ../llvm \
        -DLLVM_ENABLE_PROJECTS="clang;clang++;lld;compiler-rt" \
        -DCMAKE_INSTALL_PREFIX=/usr/local/llvm \
        -DLLVM_BINUTILS_INCDIR=~/binutils/include/ \
-       -DLLVM_ENABLE_LTO=Thin \
-       -DLLVM_USE_SANITIZER=Address \
        -DLLVM_USE_LINKER=gold
 $ make
 ```
 
 Once the compilation is complete, add LLVM to your `PATH` environment variable by appending the following line to your `~/.bashrc` file. Then, run `source ~/.bashrc` to apply the changes.
 
-
+```bash
+export LLVM_DIR=/path/to/llvm-project/build # e.g.,/home/gecko/llvm-project/build
+export LT_LLVM_INSTALL_DIR=/path/to/llvm-project/build
+export PATH=$LLVM_DIR/bin:$PATH
+```
 
 
 ## Install Gecko
@@ -83,7 +85,7 @@ cmake .. && make
 sudo make install
 ``` -->
 
-```bash!
+```bash
 $ sudo apt install libjsoncpp-dev
 $ cd SVF
 $ ./build.sh
@@ -93,8 +95,8 @@ $ ./build.sh
 
 Install pre-requirsite packages and then compile it
 
-```bash!
-$ sudo apt install libprotobuf-dev libprotobuf-c-dev protobuf-c-compiler protobuf-compiler python3-protobuf libnl-3-dev libcap-dev  uuid-dev libbsd-dev
+```bash
+$ sudo apt install libprotobuf-dev libprotobuf-c-dev protobuf-c-compiler protobuf-compiler python3-protobuf libnl-3-dev libcap-dev  uuid-dev libbsd-dev libnftables-dev libnet1-dev gnutls-dev libdrm-dev
 $ cd ~/Gecko/checkpoint_restore
 $ make clean
 $ make
@@ -106,8 +108,27 @@ $ make
 Gecko requires some modifications to ArduPilot—primarily in the build process, as well as changes related to the recovery block. To support this, we provide two customized versions of ArduPilot, which can be pulled by:
 
 
-```bash!
+```bash
 $ cd ~
-$ git clone
-$ git clone
+$ git clone git@github.com:a01ixxx/ardupilot_redcaps.git
+$ git clone 
 ```
+
+Install the dependency:
+
+```bash
+$ cd ardupilot_redcaps
+$ Tools/environment_install/install-prereqs-ubuntu.sh -y
+# Reload the path
+$. ~/.profile
+```
+
+
+Compile both versions of ArduPilot:
+```bash
+
+
+```
+
+
+At this point, the environment setup is complete. You can now follow the instructions in the README.md to run the demo.
