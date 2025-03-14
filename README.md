@@ -13,6 +13,8 @@ This repo contains the source code of Gecko, which is structured as follows:
 
 **All code is only tested on Ubuntu 20.04. To ensure compatibility and avoid potential issues, we recommend running it on Ubuntu 20.04.**
 
+We provide instructions for running a pre-configured Docker container or installing all dependencies from scratch. We recommend using Docker, but if you'd prefer to install manually, please refer to the instructions in the `INSTALL.md` file.
+
 
 ### Set up Docker
 
@@ -87,7 +89,7 @@ Then you will enter into the docker
 
 Given CPS software such as ArduPilot, \sysname uses command line instructions to automatically compartmentalize and instrument the software.
 
-```bash!
+```bash
 $ cd ~
 $ cd ./ardupilot_redcaps/
 $ ./1_compartmentalization.sh
@@ -99,7 +101,7 @@ The compartmentalization result is in the file \textit{./build/sitl/compartments
 Next, \sysname uses the following command line to automatically instrument the defense mechanism in the given application with our customized compiler. 
 
 
-```bash!
+```bash
 $ ./2_instrumentation.sh
 ```
 
@@ -112,16 +114,17 @@ Launching the ArduPilot simulation requires multiple commands, so we provide thr
 
 The first script launches ArduPilot and checkpoints a program in memory, which will be used later.
 
-```bash!
+```bash
 $ cd ~/ardupilot_recovery
 $ ./prepare_checkpoint.sh
+# You may need to enter the sudo passwd
 ```
 
 
 
 The second script automatically configures the drone, launches the mission, and opens two panels to display simulation information. 
 
-```bash!
+```bash
 $ cd ./ardupilot_redcaps/
 $ ./launch_demo.sh
 [Gecko] Using the native block.
@@ -138,7 +141,7 @@ Then, return to your main terminal by **detaching** from the current tmux sessio
 Next, you can run the thrid script, which is designed to trigger a program crash and then recover it from a checkpoint.  
 
 
-```
+```bash
 $ ./launch_attack_recovery.sh
 [Gecko] The task is restored !!! 
 With response time: xxx seconds

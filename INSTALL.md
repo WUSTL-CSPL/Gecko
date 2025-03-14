@@ -10,15 +10,14 @@ Install apt packages:
 
 ```bash
 $ sudo apt update
-$ sudo apt install cmake build-essential make texinfo bison flex ninja-build git gitk git-gui ncurses-dev texlive-full binutils-dev python3-networkx python3-matplotlib python3-pygraphviz python3-serial python3-pip python3-distutils python-is-python3
+$ sudo apt install cmake build-essential make texinfo bison flex ninja-build git gitk git-gui ncurses-dev texlive-full binutils-dev python3-networkx python3-matplotlib python3-pygraphviz python3-serial python3-pip python3-distutils python-is-python3 tmux
 ```
 
 
 Install pip packages:
 
 ```bash
-
-
+pip install community pydot opencv-python 
 ```
 
 **Trouble Shooting**:
@@ -33,7 +32,7 @@ Gecko is built on top of LLVM 13. The following instructions are sourced from th
 Install some prerequisite packages:
 
 ```bash
-$ sudo apt install -y build-essential cmake ninja-build git curl python3 zlib1g-dev libedit-dev libncurses5-dev libxml2-dev libssl-dev libtool-bin texinfo libexpat1-dev
+$ sudo apt install -y build-essential cmake ninja-build git curl python3 zlib1g-dev libedit-dev libncurses5-dev libxml2-dev libssl-dev libtool-bin texinfo libexpat1-dev 
 ```
 
 To enable the LLVM pass, we enable the gold plugin, which requires `binutils` to build
@@ -99,6 +98,8 @@ $ sudo apt install libprotobuf-dev libprotobuf-c-dev protobuf-c-compiler protobu
 $ cd ~/Gecko/checkpoint_restore
 $ make clean
 $ make
+# Set the capability of checkpoint_restore
+$ sudo setcap cap_sys_admin+eip /home/gecko/Gecko/checkpoint_restore/criu/criu
 ```
 
 
@@ -118,7 +119,12 @@ Install the dependency:
 ```bash
 $ cd ~/ardupilot_recovery
 $ Tools/environment_install/install-prereqs-ubuntu.sh -y
+$ sudo apt-get install libgtk-3-dev libwebkit2gtk-4.0-dev libjpeg-dev libtiff-dev libsdl1.2-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
+$ pip install MAVProxy wxPython 
+# Add this statement into ~/.bashrc
+export PATH=$PATH:~/.local/bin
 # Reload the path
+$ source ~/.bashrc
 $. ~/.profile
 ```
 
