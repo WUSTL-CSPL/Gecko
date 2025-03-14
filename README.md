@@ -13,26 +13,7 @@ This repo contains the source code of Gecko, which is structured as follows:
 
 **All code is only tested on Ubuntu 20.04. To ensure compatibility and avoid potential issues, we recommend running it on Ubuntu 20.04.**
 
-<!--
-Dependencies Installation:
-```
-$ sudo apt install cmake build-essential make texinfo bison flex \\ 
-ninja-build git ncurses-dev texlive-full binutils-dev python-networkx \\ 
-python-matplotlib python-pygraphviz python-serial 
-```
 
-LLVM Installation: \sysname is tested on \textsf{LLVM-13}. User can either install the package on ubuntu or compile from source code. Due to space constraints, please refer to the [official instructions](https://releases.llvm.org/13.0.0/docs/CMake.html) for more details.
-
-
-Install jsoncpp
-```
-git clone https://github.com/open-source-parsers/jsoncpp.git
-cd jsoncpp
-mkdir build && cd build
-cmake .. && make
-sudo make install
-```
--->
 ### Set up Docker
 
 You can also use our preconfigured Docker setup. In that case, you'll need to install Docker first. 
