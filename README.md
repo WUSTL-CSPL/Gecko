@@ -35,11 +35,8 @@ sudo make install
 -->
 ### Set up Docker
 
-You can also use our preconfigured Docker setup. In that case, you'll need to install Docker first.
-
-### Manual Installation
-
-Instruction source: [Install Docker Desktop on Linux | Docker Documentation](https://docs.docker.com/desktop/install/linux-install/)
+You can also use our preconfigured Docker setup. In that case, you'll need to install Docker first. 
+The instruction for installing docker is from: [Install Docker Desktop on Linux | Docker Documentation](https://docs.docker.com/desktop/install/linux-install/)
 
 Uninstall old versions
 
