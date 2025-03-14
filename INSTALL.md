@@ -10,7 +10,7 @@ Install apt packages:
 
 ```bash
 $ sudo apt update
-$ sudo apt install cmake build-essential make texinfo bison flex ninja-build git gitk git-gui ncurses-dev texlive-full binutils-dev python-networkx python-matplotlib python-pygraphviz python-serial 
+$ sudo apt install cmake build-essential make texinfo bison flex ninja-build git gitk git-gui ncurses-dev texlive-full binutils-dev python3-networkx python3-matplotlib python3-pygraphviz python3-serial python3-pip python3-distutils python-is-python3
 ```
 
 
@@ -111,24 +111,23 @@ Gecko requires some modifications to ArduPilot—primarily in the build process,
 ```bash
 $ cd ~
 $ git clone git@github.com:a01ixxx/ardupilot_redcaps.git
-$ git clone 
+$ git clone https://github.com/a01ixxx/ardupilot_recovery.git
 ```
 
 Install the dependency:
 
 ```bash
-$ cd ardupilot_redcaps
+$ cd ~/ardupilot_recovery
 $ Tools/environment_install/install-prereqs-ubuntu.sh -y
 # Reload the path
 $. ~/.profile
 ```
 
-
-Compile both versions of ArduPilot:
+Compile ArduPilot:
 ```bash
-
-
+$ cd ~/ardupilot_recovery
+$ ./waf configure --board sitl
+$ ./waf copter
 ```
-
 
 At this point, the environment setup is complete. You can now follow the instructions in the README.md to run the demo.
