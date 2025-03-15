@@ -125,7 +125,7 @@ $ ./prepare_checkpoint.sh
 The second script automatically configures the drone, launches the mission, and opens two panels to display simulation information. 
 
 ```bash
-$ cd ./ardupilot_redcaps/
+$ cd ~/ardupilot_redcaps/
 $ ./launch_demo.sh
 [Gecko] Using the native block.
 [Gecko] Using the native block.

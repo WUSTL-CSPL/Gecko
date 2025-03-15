@@ -134,4 +134,4 @@ $ ./waf configure --board sitl
 $ ./waf copter
 ```
 
-At this point, the environment setup is complete. You can now follow the instructions in the README.md (Section `Run the demo`) to run the demo.
+At this point, the environment setup is complete. You can now follow the instructions in the README.md (Section `Run Gecko`) to run the demo.
