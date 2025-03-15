@@ -142,6 +142,7 @@ Next, you can run the thrid script, which is designed to trigger a program crash
 
 
 ```bash
+# This script requires sudo privileges. You can either replace the placeholder with your password in the scripts or enter it manually when prompted.
 $ ./launch_attack_recovery.sh
 [Gecko] The task is restored !!! 
 With response time: xxx seconds
