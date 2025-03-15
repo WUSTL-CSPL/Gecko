@@ -108,7 +108,7 @@ $ ./2_instrumentation.sh
 The final binary result is the file \textit{./build/sitl/bin/arducopter}. You can use the following command to check the instrumented attack detection codes.
 
 
-#### Run time
+#### Run the demo
 
 Launching the ArduPilot simulation requires multiple commands, so we provide three scripts to simplify the process. 
 
