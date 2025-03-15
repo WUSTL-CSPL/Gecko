@@ -84,7 +84,7 @@ Our LLVM pass relies on jsoncpp in compartmentalization step
 
 ```bash
 $ sudo apt install libjsoncpp-dev libtinfo5
-$ cd SVF
+$ cd ~/Gecko/SVF
 $ ./build.sh
 ```
 
@@ -98,7 +98,7 @@ $ cd ~/Gecko/checkpoint_restore
 $ make clean
 $ make
 # Set the capability of checkpoint_restore
-$ sudo setcap cap_sys_admin+eip /home/gecko/Gecko/checkpoint_restore/criu/criu
+$ sudo setcap cap_sys_admin+eip ~/Gecko/checkpoint_restore/criu/criu
 ```
 
 
@@ -109,7 +109,7 @@ Gecko requires some modifications to ArduPilot—primarily in the build process,
 
 ```bash
 $ cd ~
-$ git clone git@github.com:a01ixxx/ardupilot_redcaps.git
+$ git clone https://github.com/a01ixxx/ardupilot_redcaps.git
 $ git clone https://github.com/a01ixxx/ardupilot_recovery.git
 ```
 
