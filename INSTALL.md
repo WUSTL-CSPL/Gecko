@@ -70,21 +70,20 @@ export PATH=$LLVM_DIR/bin:$PATH
 
 ## Install Gecko
 
+Pull Gecko repository:
+
+```bash
+$ cd ~
+$ git clone https://github.com/WUSTL-CSPL/Gecko.git
+```
+
 
 ### Build SVF
 
 Our LLVM pass relies on jsoncpp in compartmentalization step
 
-<!-- ```bash!
-git clone https://github.com/open-source-parsers/jsoncpp.git
-cd jsoncpp
-mkdir build && cd build
-cmake .. && make
-sudo make install
-``` -->
-
 ```bash
-$ sudo apt install libjsoncpp-dev
+$ sudo apt install libjsoncpp-dev libtinfo5
 $ cd SVF
 $ ./build.sh
 ```
